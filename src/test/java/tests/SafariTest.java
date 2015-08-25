@@ -1,7 +1,9 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -17,10 +19,20 @@ public class SafariTest {
 
 
     @BeforeMethod
-    public void setUp() {
-        driver = new SafariDriver();
+    public void setUp() throws UnreachableBrowserException{
+        //Safari's just really bitchy with it's server
+        try {
+            driver = new SafariDriver();
+        }catch (UnreachableBrowserException uBe){
+            driver = new SafariDriver();
+        }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.google.com");
+        driver.manage().window().setPosition(new Point(2561, 0));
+        driver.manage().window().maximize();
+
+
+
     }
 
     @AfterMethod
