@@ -20,7 +20,7 @@ public class SafariTest {
 
     @BeforeMethod
     public void setUp() throws UnreachableBrowserException{
-        //Safari's just really bitchy with it's server
+        //Safari's just really bitchy with its server
         try {
             driver = new SafariDriver();
         }catch (UnreachableBrowserException uBe){
@@ -28,7 +28,7 @@ public class SafariTest {
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.google.com");
-        driver.manage().window().setPosition(new Point(2561, 0));
+        driver.manage().window().setPosition(new Point(-0, 0));
         driver.manage().window().maximize();
 
 
@@ -46,7 +46,7 @@ public class SafariTest {
         By searchBar = By.id("lst-ib");
         driver.findElement(searchBar).click();
         driver.findElement(searchBar).sendKeys("the Nerdery");
-        By link = By.xpath("//a[contains(text(),'Nerdery.com - The Nerdery')]");
+        By link = By.xpath("//a[contains(text(),'The Nerdery')]");
         driver.findElement(link).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("//li[2]/a/span")).click();

@@ -23,7 +23,8 @@ public class FirefoxTest {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.google.com");
-        driver.manage().window().setPosition(new Point(1280, 0));
+        driver.manage().window().setPosition(new Point(1921, 0));
+        driver.manage().window().maximize();
 
     }
 
@@ -38,7 +39,7 @@ public class FirefoxTest {
         By searchBar = By.id("lst-ib");
         driver.findElement(searchBar).click();
         driver.findElement(searchBar).sendKeys("the Nerdery");
-        By link = By.xpath("//a[contains(text(),'Nerdery.com - The Nerdery')]");
+        By link = By.xpath("//a[contains(text(),'The Nerdery')]");
         driver.findElement(link).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("//li[2]/a/span")).click();

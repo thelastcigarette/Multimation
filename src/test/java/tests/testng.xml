@@ -1,15 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="tests">
-    <test name="SafariTest">
-        <parameter name="browser" value="safari" />
-        <classes>
-            <class name="tests.SafariTest" />
-        </classes>
-    </test>
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox" />
         <classes>
             <class name="tests.FirefoxTest" />
+        </classes>
+    </test>
+    <test name="SafariTest">
+        <parameter name="browser" value="safari" />
+        <classes>
+            <class name="tests.SafariTest" />
         </classes>
     </test>
     <test name="ChromeTest">
